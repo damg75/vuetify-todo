@@ -33,6 +33,11 @@
           @close="dialogs.delete = false"
           v-if="dialogs.delete"
         />
+        <dialog-edit
+          :task="task"
+          @close="dialogs.edit = false"
+          v-if="dialogs.edit"
+        />
     </div>
 </template>
 
@@ -41,14 +46,15 @@ export default {
     props: ['task'],
     data: () => ({
         dialogs: {
-            delete: false
+            delete: false,
+            edit: false
         },
         items: [
             { 
                 title: 'Edit',
                 icon: 'mdi-pencil',
                 click() {
-                    console.log('edit')
+                    this.dialogs.edit = true
                 }
             },
             { 
@@ -73,7 +79,9 @@ export default {
         }
     },
     components: {
-        'dialog-delete': require('@/components/Todo/Dialogs/DialogDelete.vue').default
+        'dialog-delete': require('@/components/Todo/Dialogs/DialogDelete.vue').default,
+        'dialog-edit': require('@/components/Todo/Dialogs/DialogEdit.vue').default
+
     }
 }
 </script>
