@@ -1,7 +1,7 @@
 # vuetify-todo
 
 ## Project setup
-```
+``` 
 npm install
 ```
 
