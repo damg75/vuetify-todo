@@ -42,7 +42,7 @@ import { format } from 'date-fns'
 
 export default {
   props: ['task'],
-  filter: {
+  filters: {
     niceDate(value) {
       return format(new Date(value), 'MMM d') //no funciono
     }

@@ -43,6 +43,7 @@
       color="primary"
       dark
       prominent
+      height="170"
       src="space.jpg"
     >
       <template v-slot:img="{ props }">
@@ -59,7 +60,12 @@
           <search/>
         </v-row>
         <v-row>
-          <v-app-bar-title class="ml-4">Vuetify Todo</v-app-bar-title>
+          <v-toolbar-title class="text-h4 ml-4">
+            Vuetify Todo
+          </v-toolbar-title>
+        </v-row>
+        <v-row>
+          <live-date-time />
         </v-row>
       </v-container>
 
@@ -79,6 +85,7 @@
 </template>
 
 <script>
+import LiveDateTime from './components/Tools/LiveDateTime.vue'
   export default {
     data: () => ({ 
       drawer: null ,
@@ -89,8 +96,8 @@
     }),
     components: {
       'search': require('@/components/Tools/Search.vue').default,
+      'live-date-time': require('@/components/Tools/LiveDateTime.vue').default,
       'snack-bar': require('@/components/Shared/SnackBar.vue').default
-
     }
   }
 </script>
