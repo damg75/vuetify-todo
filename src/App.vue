@@ -3,19 +3,30 @@
     <v-navigation-drawer 
       v-model="drawer"
       app
+      :mobile-breakpoint="768"
     >
-      <v-list-item>
-        <v-list-item-content>
-          <v-list-item-title class="text-h6">
-            Vuetify Todo
-          </v-list-item-title>
-          <v-list-item-subtitle>
-            Best Todo ever
-          </v-list-item-subtitle>
-        </v-list-item-content>
-      </v-list-item>
-
-      <v-divider></v-divider>
+    <v-img
+      src="space.jpg"
+      height="170"
+      gradient="to top right, rgba(19,84,122,.5), rgba(128,208,199,.8)"
+      class="pa-4 pt-6"
+    >
+      <v-avatar
+        size="70"
+        class="mb-2"
+      >
+        <img
+          src="avatar.jpg"
+          alt="John Doe"
+        >
+      </v-avatar>
+      <div class="white--text text-subtitle-1 font-weight-bold">
+        Daniel Morán
+      </div>
+      <div class="white--text text-subtitle-2">
+        damg.codes
+      </div>
+    </v-img>
 
       <v-list
         dense
@@ -53,7 +64,7 @@
         ></v-img>
       </template>
 
-      <v-container class="px-0">
+      <v-container class="px-0" fluid>
         <v-row>
           <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
           <v-spacer></v-spacer>
@@ -88,7 +99,7 @@
 import LiveDateTime from './components/Tools/LiveDateTime.vue'
   export default {
     data: () => ({ 
-      drawer: null ,
+      drawer: null,
       items: [
         { title: 'Todo', icon: 'mdi-format-list-checks', to: '/'},
         { title: 'About', icon: 'mdi-help-box', to: '/about'}
