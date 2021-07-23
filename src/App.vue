@@ -72,7 +72,7 @@
         </v-row>
         <v-row>
           <v-toolbar-title class="text-h4 ml-4">
-            Vuetify Todo
+            {{ $store.state.appTitle }}
           </v-toolbar-title>
         </v-row>
         <v-row>
@@ -96,7 +96,6 @@
 </template>
 
 <script>
-import LiveDateTime from './components/Tools/LiveDateTime.vue'
   export default {
     data: () => ({ 
       drawer: null,
