@@ -1,6 +1,6 @@
 <template>
   <v-btn
-    @click="$store.commit('toggleSorting')"
+    @click="doneTaskSorting"
     color="primary"
     class="button-done-sorting"
   >
@@ -10,6 +10,17 @@
 
 <script>
 export default {
+  data() {
+    return {
+      
+    }
+  },
+  methods: {
+    doneTaskSorting() {
+      this.$store.commit('toggleSorting')
+      this.$store.commit('showSnackBar', `Tasks reordered!`)
+    }
+  }
 
 }
 </script>
