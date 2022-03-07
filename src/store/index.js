@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import Localbase from 'localbase'
+import createPersistedState from "vuex-persistedstate";
 
 let db = new Localbase('db')
 db.config.debug = false
@@ -36,7 +37,8 @@ export default new Vuex.Store({
       show: false,
       text: ''
     },
-    sorting: false
+    sorting: false,
+    drawer: true 
   },
   mutations: {
     setSearch(state, value) {
@@ -79,7 +81,8 @@ export default new Vuex.Store({
     },
     toggleSorting(state) {
       state.sorting = !state.sorting
-    }
+    },
+    TOGGLE_DRAWER: state => (state.drawer = !state.drawer),
   },
   actions: {
     addTask({ commit }, newTaskTitle) {
@@ -143,8 +146,10 @@ export default new Vuex.Store({
       return state.tasks.filter(task => 
         task.title.toLowerCase().includes(state.search.toLowerCase())
       )
-    }
+    },
+    drawerState: (state) => state.drawerState
   },
   modules: {
-  }
+  },
+  plugins: [createPersistedState()]
 })
